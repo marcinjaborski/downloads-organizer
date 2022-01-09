@@ -1,0 +1,1 @@
+CreateObject("Wscript.Shell").Run "C:\Users\Marcin\PycharmProjects\downloads-organizer\runner.bat",0,True

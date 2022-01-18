@@ -20,13 +20,11 @@ class MyHandler(FileSystemEventHandler):
             if os.path.isdir(src):
                 continue
             rule_index = match_rule(filename)
-            dest = f"{source_folder}/"
-            output_folder = None
             if rule_index is None:
-                dest += f"{config['MAIN']['default']}/{filename}"
-            else:
-                output_folder = config['FOLDERS'][f'folder{rule_index}']
-                dest += f"{output_folder}/{filename}"
+                continue
+            dest = f"{source_folder}/"
+            output_folder = config['FOLDERS'][f'folder{rule_index}']
+            dest += f"{output_folder}/{filename}"
             try:
                 os.rename(src, dest)
             except FileNotFoundError:

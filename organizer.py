@@ -15,6 +15,7 @@ def match_rule(filename):
 
 class MyHandler(FileSystemEventHandler):
     def on_modified(self, event):
+        time.sleep(1)
         for filename in os.listdir(source_folder):
             src = f"{source_folder}/{filename}"
             if os.path.isdir(src):
